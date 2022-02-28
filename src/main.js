@@ -6,14 +6,21 @@ var result = parseInt("0");
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/home', (req, res) => {
+  res.sendFile("D:\Code\web-client\increase-web\increase-web\public\test.html")
+  // res.render("../public/test.html")
 })
 
 app.post('/api/increase', (req, res) => {
 
   result++;
 
+  console.log(result)
+
+  res.send({result:result})
+})
+
+app.post('/api/refresh', (req, res) => {
   console.log(result)
 
   res.send({result:result})
